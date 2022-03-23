@@ -22,7 +22,7 @@ def local_uname():
 
 def commit(message='updates'):
     # Add comment using quotes to format them as strings
-    # fab commit 
+    # fab commit: 
     try:
         local("git add .")
         print('----------')
