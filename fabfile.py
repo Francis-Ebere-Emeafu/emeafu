@@ -21,9 +21,13 @@ def local_uname():
 
 
 def commit(message='updates'):
+    # Add comment using quotes to format them as strings
+    # fab commit 
     try:
         local("git add .")
+        print('---------- \n')
         print(message)
+        print('---------- \n')
         local("git commit -m '{}'".format(message))
         local("git push")
         print(colors.green('Changes committed and pushed to github remote server!', bold=False))
