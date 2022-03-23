@@ -25,7 +25,7 @@ def commit(message='updates'):
     # fab commit 
     try:
         local("git add .")
-        print('---------- \n')
+        print('----------')
         print(message)
         print('---------- \n')
         local("git commit -m '{}'".format(message))
