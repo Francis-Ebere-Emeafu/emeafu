@@ -61,6 +61,10 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+
+    # Custome Apps
+    'home',
+    'streams',
 ]
 
 MIDDLEWARE = [

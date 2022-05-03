@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+    {% image self.blog_image fill-900x400 as banner %}
+        <img src="{{ banner.url}}" alt="{{ banner.alt }}">
+    
+{% endblock content %}
