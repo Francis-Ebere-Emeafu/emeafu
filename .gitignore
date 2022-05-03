@@ -70,6 +70,7 @@ db.sqlite3-journal
 # sqlite db
 *.sqlite3
 *.db
+*dev.db
 dev.db
 # Flask stuff:
 instance/
@@ -122,6 +123,7 @@ venv.bak/
 
 static
 .static
+*static
 
 # Spyder project settings
 .spyderproject
