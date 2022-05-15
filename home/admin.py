@@ -1,3 +1,19 @@
 from django.contrib import admin
 
-# Register your models here.
+from home.models import BlogAuthor, BlogDetailPage, BlogCategory
+
+
+@admin.register(BlogAuthor)
+class BlogAuthorAdmin(admin.ModelAdmin):
+    list_display = ['name']
+
+
+@admin.register(BlogDetailPage)
+class BlogDetailPageAdmin(admin.ModelAdmin):
+    list_display = ['custom_title', 'date']
+
+
+
+@admin.register(BlogCategory)
+class BlogCategoryAdmin(admin.ModelAdmin):
+    list_display = ['title']

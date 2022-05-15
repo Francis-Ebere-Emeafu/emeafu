@@ -35,17 +35,20 @@
                         </a>
                     </div>
                     <div class="post-content"  data-animation="animated fadeInDown">
-                        <span class="catagory" data-animation="animated fadeInDown"><a href="#">World</a></span>
+                        <span class="catagory" data-animation="animated fadeInDown"><a href="#">{{post.category}}</a></span>
                         <h2 class="entry-title" data-animation="animated fadeInDwn">
                             <a href="{{ post.url }}">{{ post }}</a>
                         </h2>
                         <div class="entry-meta" data-animation="animated fadeInDwn">
                             <ul>
-                                <li>By <a href="#">Adam Hianks</a></li>
-                                <li>643 Share /<a href="#"> 9 Hour ago</a></li>
+                                {% for iter in post.blog_authors.all %}
+                                {% image iter.author.image fill-50x50 as img %}
+                                <li>By <a href="#"> {{ iter.author.name }}</a></li>
+                                {% endfor %}
+                                <li><a href="#">{{post.date|timesince}} ago</a></li>
                             </ul>
                         </div>
-                        <p data-animation="animated fadeInUp">{{ post.title|truncatewords:2 }}</p>
+                        <p data-animation="animated fadeInUp">{{ post.content_first_paragraph|truncatewords:30 }}</p>
                         <div class="read-more" data-animation="animated fadeInUp">
                             <div class="continue-reading pull-left">
                                 <a href="{{ post.url }}">Continue Reading <i class="fa fa-angle-right"></i></a>
