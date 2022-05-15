@@ -122,8 +122,7 @@ env.bak/
 venv.bak/
 
 static
-.static
-*static
+.static 
 
 # Spyder project settings
 .spyderproject
