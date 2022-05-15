@@ -105,7 +105,7 @@ class BlogAuthor(models.Model):
     
     def __str__(self):
         """String representation of this class"""
-        return "{} {}".format(self.name)
+        return "{}".format(self.name)
 
     class Meta:
         verbose_name = "Blog Author"
