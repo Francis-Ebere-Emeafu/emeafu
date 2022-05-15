@@ -2,6 +2,12 @@
 
 {% load static wagtailimages_tags %}
 
+{% block newsfeed %}
+    {% for post in news_feed %}
+        <li><a href="{{ post.url }}">{{ post }}</a></li>
+    {% endfor %}
+{% endblock newsfeed %}
+
 {% block content %}
 
 <div class="tr-home-slider slider-style-two">

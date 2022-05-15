@@ -48,7 +48,7 @@
 				<div class="tr-topbar clearfix margin-bottom-0">
 					<div class="row">
 						<div class="col-lg-3">
-							<a class="navbar-brand d-none d-lg-block" href="index.html"><img class="img-fluid" src="{% static 'images/logo.png' %}" alt="Logo"></a>
+							<a class="navbar-brand d-none d-lg-block" href="/"><img class="img-fluid" src="{% static 'images/logo_adnews.png' %}" alt="Logo"></a>
 						</div>
 						<div class="col-lg-9">
 							<div class="topbar-left">
@@ -68,10 +68,12 @@
 			                	</div><!-- breaking-news -->							
 							</div><!-- /.topbar-left -->
 							<div class="topbar-right">
+								{% comment %}
 								<div class="user">
 									<div class="user-image">
 										<img class="img-fluid img-circle" src="{% static 'images/others/user.png' %}" alt="Image">
 									</div>
+									<!--
 									<div class="dropdown user-dropdown">
 										Hello,						
 										<a href="#" aria-expanded="true">Jhon Player<i class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -80,7 +82,8 @@
 											<li><a href="#">Settings</a></li>
 											<li><a href="#">Log Out</a></li>
 										</ul>								
-									</div>							
+									</div>	
+									-->
 								</div>
 								<div class="searchNlogin">
 									<ul>
@@ -105,13 +108,12 @@
 											<input type="text" class="search-form" autocomplete="off" placeholder="Type & Press Enter">
 										</form>
 									</div> <!--/.search--> 								
-								</div>										
+								</div>	
+								{% endcomment %}									
 							</div><!-- /.topbar-right -->								
 						</div>							
 					</div><!-- /.row -->				
 				</div><!-- /.tr-topbar -->	
-
-
 
 				<div class="tr-menu menu-responsive">
 					<nav class="navbar navbar-default navbar-expand-lg">
@@ -123,6 +125,7 @@
 		
 						<div class="collapse navbar-left navbar-collapse" id="navbarNav">
 							<ul class="nav navbar-nav">
+								<!--
 								<li class="dropdown menu-item-icon"><a href="#"><i class="fa fa-bars"></i></a>
 								    <ul class="sub-menu" role="menu">    
 								        <li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>Dummy Menu</a>
@@ -143,7 +146,9 @@
 								        </li>
 								    </ul>
 								</li>
+								-->
 								<li class="dropdown active"><a href="#">Home</a>
+									<!--
 									<ul class="sub-menu">
 										<li><a href="index.html">Home Default</a></li>
 										<li><a href="index1.html">Home Version-1</a></li>
@@ -152,18 +157,24 @@
 										<li><a href="index4.html">Home Version-4</a></li>
 										<li><a href="index5.html">Home Version-5</a></li>
 									</ul>
+									-->
 								</li>
-								<li><a href="index2.html">Business</a></li>
-								<li><a href="index3.html">LifeStyle</a></li>
-								<li><a href="common-list.html">Politics</a></li>
-								<li><a href="index4.html">Sports</a></li>
-								<li><a href="index1.html">Social</a></li>
+								<li><a href="/">Adscene</a></li>
+								<li><a href="/">Brand Talk</a></li>
+								<li><a href="/">Profile</a></li>
+								<li><a href="/">Interviews</a></li>
+								<li><a href="/">Advertising</a></li>
+								<li><a href="/">Branding</a></li>
+								<li><a href="/">Digital</a></li>
+								<li><a href="/">People</a></li>
+								<li><a href="/">Spotlite</a></li>
 								<li class="dropdown"><a href="#">About</a>
 									<ul class="sub-menu">
-										<li><a href="about.html">About Page</a></li>
-										<li><a href="about1.html">About Page-1</a></li>
+										<li><a href="/">About Adnews</a></li>
+										<li><a href="/">Contact Us</a></li>
 									</ul>
 								</li>
+								<!--
 								<li class="dropdown"><a href="#">Details</a>
 									<ul class="sub-menu">
 										<li><a href="details.html">Details Page</a></li>
@@ -179,7 +190,8 @@
 								</li>
 								<li><a href="login.html">Login</a></li>
 								<li><a href="register.html">Register</a></li>
-								<li><a href="404.html">404 Page</a></li>								
+								<li><a href="404.html">404 Page</a></li>	
+								-->
 							</ul>
 						</div>						
 						<ul class="feed pull-right">
@@ -190,7 +202,7 @@
 						</ul>						
 					</nav><!-- navbar -->										
 				</div><!-- /tr-menu -->		
-
+				{% comment %}{% endcomment %}
                 {% block content %}		
 
 				<div class="tr-home-slider slider-style-two">
@@ -1321,101 +1333,8 @@
 			</div><!-- /.container-fluid -->	
 		</div><!-- main-wrapper -->
 
-		<footer id="footer">
-			<div class="footer-menu">
-				<div class="container">
-					<ul class="nav navbar-nav">                       
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Products</a></li>
-						<li><a href="#">Career</a></li>
-						<li><a href="#">Advertisement</a></li>
-						<li><a href="#">Team</a></li>
-						<li><a href="#">Contact Us</a></li>
-					</ul> 
-				</div>
-			</div>
-			<div class="footer-widgets">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4">
-							<div class="widget widget-menu-2">
-								<h2>Category</h2> 
-								<ul>
-									<li><a href="#">Business</a></li>
-									<li><a href="#">Politics</a></li>
-									<li><a href="#">Sports</a></li>
-									<li><a href="#">World</a></li>
-									<li><a href="#">Technology</a></li>
-									<li><a href="#">Environment</a></li>
-									<li><a href="#">Health</a></li>
-									<li><a href="#">Entertainment</a></li>
-									<li><a href="#">Lifestyle</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="widget">
-								<h2>Editions</h2> 
-								<ul>
-									<li><a href="#">United States</a></li>
-									<li><a href="#">China</a></li>
-									<li><a href="#">India</a></li>
-									<li><a href="#">Maxico</a></li>
-									<li><a href="#">Middle East</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="widget widget-menu-3">
-								<h2>Tag</h2> 
-								<ul>
-									<li><a href="#">Gallery</a></li>
-									<li><a href="#">Sports</a></li>
-									<li><a href="#">Featured</a></li>
-									<li><a href="#">Fashion</a></li>
-									<li><a href="#">Entertainment</a></li>
-									<li><a href="#">Business</a></li>
-									<li><a href="#">Tech</a></li>
-									<li><a href="#">Movies</a></li>
-									<li><a href="#">Music</a></li>
-									<li><a href="#">Packages</a></li>
-									<li><a href="#">Amazon</a></li>
-									<li><a href="#">Cars</a></li>
-									<li><a href="#">Phones</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="widget">
-								<h2>Products</h2> 
-								<ul>
-									<li><a href="#">Ebooks</a></li>
-									<li><a href="#">Newsfeeds</a></li>
-									<li><a href="#">Reprints & Permissions</a></li>
-									<li><a href="#">Magazine</a></li>							
-									<li><a href="#">College Guide</a></li>
-								</ul>
-							</div>
-						</div>						
-					</div><!-- /.row -->
-				</div>
-			</div>
-			<div class="footer-bottom text-center">
-				<div class="container">
-					<div class="footer-bottom-content">
-						<div class="footer-logo">
-							<a href="index.html"><img class="img-fluid" src="images/footer-logo.png" alt="Logo"></a>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<address>
-							<p>&copy; 2017 <a href="#">Newshub</a>. Email: <a href="#">info@newshub.com</a> | News: <a href="#">news.newshub.com</a> | Advertising: <a href="#">ad.newshub.com</a> <br>Phone: + 1234 8812345, 880112345 + 1359, 6356 + 112-11-9874</p>
-						</address>					
-					</div><!-- /.footer-bottom-content -->
-				</div><!-- /.container -->
-			</div><!-- /.footer-bottom -->		
-		</footer><!-- /#footer -->  	
-
+		{% include "footer.html" %}
+		
 
 		<!-- JS -->
 		<script src="{% static 'js/jquery.min.js' %}"></script>
