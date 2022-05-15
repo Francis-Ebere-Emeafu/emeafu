@@ -5,7 +5,7 @@ from home.models import BlogAuthor, BlogDetailPage, BlogCategory
 
 @admin.register(BlogAuthor)
 class BlogAuthorAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['user', 'name']
 
 
 @admin.register(BlogDetailPage)

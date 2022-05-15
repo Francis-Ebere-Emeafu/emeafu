@@ -70,6 +70,12 @@ class BlogListingPage(Page):
 class BlogAuthor(models.Model):
     """Article Authors for the ADNEWS BLOG """
 
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True
+    )
     name = models.CharField(max_length=200)
     website = models.URLField(blank=True, null=True)
     image = models.ForeignKey(
@@ -83,6 +89,7 @@ class BlogAuthor(models.Model):
     panles = [
         MultiFieldPanel(
             [
+                FieldPanel("user"),
                 FieldPanel("name"),
                 ImageChooserPanel("image"),
             ],
@@ -98,7 +105,7 @@ class BlogAuthor(models.Model):
     
     def __str__(self):
         """String representation of this class"""
-        return self.name
+        return "{} {}".format(self.name, self.user)
 
     class Meta:
         verbose_name = "Blog Author"
