@@ -15,7 +15,7 @@
         <ol class="carousel-indicators">
             {% for post in four_posts %}
             <li data-target="#home-carousel" data-slide-to="{{ forloop.counter0 }}"  class="{%  if forloop.first %} active {% else %} {% endif %}">
-                <span class="catagory">{{post.catagory}}</span>
+                <span class="catagory">{{post.category}}</span>
                 <span class="indicators-title">{{ post }}</span>
             </li>
             {% endfor %}
