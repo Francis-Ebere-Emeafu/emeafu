@@ -179,7 +179,7 @@ class BlogDetailPage(Page):
     ]
 
     def __str__(self):
-        return "{} {}".format(self.custom_title, self.date)
+        return "{}".format(self.custom_title)
 
     class Meta:
         verbose_name = "Article Page"
