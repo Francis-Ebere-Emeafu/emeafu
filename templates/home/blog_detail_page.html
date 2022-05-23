@@ -1,10 +1,409 @@
 {% extends "base.html" %}
 
-{% load wagtailimages_tags %}
+{% load wagtailimages_tags wagtailcore_tags %}
 
 {% block content %}
 
     {% image self.blog_image fill-900x400 as banner %}
-        <img src="{{ banner.url}}" alt="{{ banner.alt }}">
+        <!-- <img src="{{ banner.url}}" alt="{{ banner.alt }}"> -->
+    
+        <div class="row">
+            <div class="col-lg-9 tr-sticky">
+                <div class="tr-content theiaStickySidebar">
+                    <div class="tr-section">
+                        <div class="tr-post">
+                            <div class="entry-header">
+                                <div class="entry-thumbnail">
+                                    <img class="img-fluid" src="{{ banner.url}}" alt="{{ banner.alt }}">
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <div class="author">
+                                    <img class="img-fluid img-circle" src="images/others/author1.png" alt="Image">
+                                </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        {% for iteration in self.blog_authors.all %}
+                                        <li>By <a href="#">{{ iteration.author.name }}</a></li>
+                                        {% endfor %}
+                                        <li><a href="#">{{ self.date }}</a></li>
+                                        <li>
+                                            <ul>
+                                                <li>Share</li>
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div><!-- /.entry-meta -->
+                                <h2 class="entry-title">
+                                    {{ self.custom_title}}
+                                </h2>
+                            </div><!-- /.post-content -->									
+                        </div><!-- /.tr-post -->
+
+                        <div class="tr-details">
+                            {% for block in page.content %}
+                                {{ block }}
+                            {% endfor %}
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> -->
+                            <!--
+                            <div class="post-inner-image text-center">
+                                <ul>
+                                    <li><img class="img-fluid" src="images/post/26.jpg" alt="Image"></li>
+                                    <li><img class="img-fluid" src="images/post/27.jpg" alt="Image"></li>
+                                    <li><img class="img-fluid" src="images/post/28.jpg" alt="Image"></li>
+                                </ul>
+                            </div>
+                            details-image -->
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> -->
+                            <!--
+                            <div class="social">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/others/social1.png" alt="Image"></a></li>
+                                    <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/others/social2.png" alt="Image"></a></li>
+                                    <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/others/social3.png" alt="Image"></a></li>
+                                    <li class="list-inline-item"><a href="#"><img class="img-fluid" src="images/others/social4.png" alt="Image"></a></li>
+                                </ul>
+                            </div>
+                            -->
+                        </div><!-- /.tr-details -->										
+                    </div><!-- /.tr-section -->
+                    {% comment %}
+                    <div class="tr-ad">
+                        <a href="#"><img class="img-fluid" src="images/ai/1.jpg" alt="Image"></a>
+                    </div><!-- /.add -->								
+
+                    <div class="tr-comment">
+                        <div class="section-title">
+                            <h1><span>Comments</span></h1>
+                        </div>								
+                        <ul class="post-comment">
+                            <li class="media">
+                                <div class="commenter-avatar">
+                                    <a href="#"><img class="img-fluid img-circle" src="images/others/author1.png" alt="Image"></a>
+                                </div>
+                                <div class="media-body">
+                                    <h2>Axel Bouaziz <span>2 Jan 2017</span></h2>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                    <a href="#" class="reply">Reply</a>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="commenter-avatar">
+                                    <a href="#"><img class="img-fluid img-circle" src="images/others/author3.png" alt="Image"></a>
+                                </div>
+                                <div class="media-body">
+                                    <h2>Adam Hianks<span>7 Jan 2017</span></h2>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                    <a href="#" class="reply">Reply</a>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="commenter-avatar">
+                                    <a href="#"><img class="img-fluid img-circle" src="images/others/author2.png" alt="Image"></a>
+                                </div>
+                                <div class="media-body">
+                                    <h2>Matt Cloey <span>12 Jan 2017</span></h2>
+                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                    <a href="#" class="reply">Reply</a>
+                                </div>
+                            </li>
+                        </ul>									
+                    </div><!-- /.comment-section -->
+
+                    <div class="tr-comment-box">
+                        <div class="section-title">
+                            <h1><span>Leave a Comments</span></h1>
+                        </div>
+                        <form class="contact-form" name="contact-form" method="post" action="#">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="one">Name</label>
+                                        <input type="text" class="form-control" required="required" id="one">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="two">Email</label>
+                                        <input type="email" class="form-control" required="required" id="two">
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="three">Subject</label>
+                                        <input type="text" class="form-control" required="required" id="three">
+                                    </div> 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="four">Your Text</label>
+                                        <textarea name="message" required="required" class="form-control" rows="7" id="four"></textarea>
+                                    </div>             
+                                </div>     
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary pull-right">Submit Your Text</button>
+                            </div>
+                        </form><!-- /.contact-form -->																		
+                    </div><!-- /.tr-comment-box -->
+                    {% endcomment %}
+                </div><!-- /.tr-content -->
+            </div><!-- /.tr-sticky -->
+            {% comment %}
+            <div class="col-lg-3 tr-sidebar tr-sticky">
+                <div class="theiaStickySidebar">
+
+                    <div class="tr-section tr-widget tr-ad ad-before">
+                        <a href="#"><img class="img-fluid" src="images/ai/2.jpg" alt="Image"></a>
+                    </div><!-- /.tr-post -->
+
+                   
+                    <div class="tr-section tr-widget">
+                        <div class="widget-title">
+                            <span>This Is rising</span>
+                        </div>
+                        <ul class="medium-post-list">
+                            <li class="tr-post">
+                                <div class="entry-header">
+                                    <div class="entry-thumbnail">
+                                        <img class="img-fluid" src="images/post/9.jpg" alt="Image">
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="catagory">
+                                        <span>Entertainment</span>
+                                    </div>
+                                    <h2 class="entry-title">
+                                        Howard Stern: 'I told Trump' I'm voting for Clinton
+                                    </h2>
+                                </div><!-- /.post-content -->			
+                            </li>
+                            <li class="tr-post">
+                                <div class="entry-header">
+                                    <div class="entry-thumbnail">
+                                        <img class="img-fluid" src="images/post/10.jpg" alt="Image">
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="catagory">
+                                        <span>Business</span>
+                                    </div>
+                                    <h2 class="entry-title">
+                                        Our closest relatives aren't fans of daylight saving time
+                                    </h2>
+                                </div><!-- /.post-content -->			
+                            </li>
+                            <li class="tr-post">
+                                <div class="entry-header">
+                                    <div class="entry-thumbnail">
+                                        <img class="img-fluid" src="images/post/11.jpg" alt="Image">
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="catagory">
+                                        <span>Technology</span>
+                                    </div>
+                                    <h2 class="entry-title">
+                                        And the most streamed Beatles song on Spotify is...
+                                    </h2>
+                                </div><!-- /.post-content -->			
+                            </li>
+                            <li class="tr-post">
+                                <div class="entry-header">
+                                    <div class="entry-thumbnail">
+                                        <img class="img-fluid" src="images/post/12.jpg" alt="Image">
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="catagory">
+                                        <span>Sports</span>
+                                    </div>
+                                    <h2 class="entry-title">
+                                        Our closest relatives aren't fans of daylight saving time
+                                    </h2>
+                                </div><!-- /.post-content -->			
+                            </li>
+                        </ul>
+                    </div><!-- /.tr-section -->
+                    
+                    <div class="tr-weather tr-widget">
+                        <div class="weather-top">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="weather-image">
+                                        <img class="img-fluid" src="images/others/weather1.png" alt="Image">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span class="weather-temp">21 <sup><span>°</span>C</sup></span>
+                                    <span class="weather-type">Mostly Cloudy</span>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>London, UK</li>
+                                <li><span><img class="img-fluid" src="images/others/weather2.png" alt="Image"></span>13%</li>
+                                <li><span><img class="img-fluid" src="images/others/weather3.png" alt="Image"></span>6.44 MPH</li>
+                            </ul>
+                        </div><!-- /.weather-top -->
+
+                        <div class="weather-bottom">
+                            <ul>
+                                <li>
+                                    <div class="weather-icon">
+                                        <img class="img-fluid" src="images/others/weather4.png" alt="Image">
+                                    </div>
+                                    <div class="weather-info">
+                                        <span>23°</span>
+                                        <span class="date">Sun, 3 Jan</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="weather-icon">
+                                        <img class="img-fluid" src="images/others/weather5.png" alt="Image">
+                                    </div>
+                                    <div class="weather-info">
+                                        <span>26°</span>
+                                        <span class="date">Sun, 3 Jan</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!-- /.weather-bottom -->
+                    </div><!-- /.weather-widget -->
+
+                    <div class="tr-section tr-widget tr-ad ad-before">
+                        <a href="#"><img class="img-fluid" src="images/ai/2.jpg" alt="Image"></a>
+                    </div><!-- /.tr-post -->								
+
+                    <div class="tr-widget meta-widget">
+                        <div class="widget-title">
+                            <span>Weekly Toplist</span>
+                        </div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation"><a class="active" href="#author" data-toggle="tab"><i class="fa fa-user"></i>Authors</a></li>
+                            <li role="presentation"><a href="#comment" data-toggle="tab"><i class="fa fa-comment-o"></i>Comments</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active fade in show" id="author">
+                                <ul class="authors-post">
+                                    <li>
+                                        <div class="entry-meta">
+                                            <div class="author-image">
+                                                <a href="#"><img class="img-fluid" src="images/others/author4.png" alt="Image"></a>
+                                            </div>
+                                            <div class="author-info">
+                                                <h2><a href="#">Janet Jackson</a></h2>
+                                            </div>						
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="entry-meta">
+                                            <div class="author-image">
+                                                <a href="#"><img class="img-fluid" src="images/others/author5.png" alt="Image"></a>
+                                            </div>
+                                            <div class="author-info">
+                                                <h2><a href="#">Matt Cloey</a></h2>
+                                            </div>						
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="entry-meta">
+                                            <div class="author-image">
+                                                <a href="#"><img class="img-fluid" src="images/others/author6.png" alt="Image"></a>
+                                            </div>
+                                            <div class="author-info">
+                                                <h2><a href="#">Kolony Wispe</a></h2>
+                                            </div>						
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="entry-meta">
+                                            <div class="author-image">
+                                                <a href="#"><img class="img-fluid" src="images/others/author7.png" alt="Image"></a>
+                                            </div>
+                                            <div class="author-info">
+                                                <h2><a href="#">Matt Cloey</a></h2>
+                                            </div>						
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="entry-meta">
+                                            <div class="author-image">
+                                                <a href="#"><img class="img-fluid" src="images/others/author8.png" alt="Image"></a>
+                                            </div>
+                                            <div class="author-info">
+                                                <h2><a href="#">Jhon dun</a></h2>
+                                            </div>						
+                                        </div>
+                                    </li>			
+                                </ul>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade in" id="comment">
+                                <ul class="comment-list">
+                                    <li>
+                                        <div class="post-content">	
+                                            <div class="entry-meta">
+                                                <span><a href="#">Jhon dun</a></span>
+                                            </div>
+                                            <h2 class="entry-title">
+                                                <a href="#">3 students arrested after body-slamming principal</a>
+                                            </h2>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-content">	
+                                            <div class="entry-meta">
+                                                <span><a href="#">Matt Cloey</a></span>
+                                            </div>
+                                            <h2 class="entry-title">
+                                                <a href="#">4 students arrested after body-slamming principal</a>
+                                            </h2>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-content">	
+                                            <div class="entry-meta">
+                                                <span><a href="#">Kolony Wispe</a></span>
+                                            </div>
+                                            <h2 class="entry-title">
+                                                <a href="#">3 students arrested after body-slamming principal</a>
+                                            </h2>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-content">	
+                                            <div class="entry-meta">
+                                                <span><a href="#">Janet Jackson</a></span>
+                                            </div>
+                                            <h2 class="entry-title">
+                                                <a href="#">4 students arrested after body-slamming principal</a>
+                                            </h2>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post-content">	
+                                            <div class="entry-meta">
+                                                <span><a href="#">Matt Cloey</a></span>
+                                            </div>
+                                            <h2 class="entry-title">
+                                                <a href="#">2 students arrested after body-slamming principal</a>
+                                            </h2>
+                                        </div>
+                                    </li>	
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- meta-tab -->								
+                </div><!-- /.theiaStickySidebar -->						
+            </div>
+            {% endcomment %}			
+        </div><!-- /.row -->
+
+        <div class="tr-ad ad-bottom ad-image text-center">
+            <a href="#"><img class="img-fluid" src="images/ai/5.jpg" alt="Image"></a>
+        </div><!-- /.tr-ad -->
     
 {% endblock content %}

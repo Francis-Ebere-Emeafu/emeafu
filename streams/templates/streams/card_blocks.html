@@ -1,0 +1,9 @@
+{% load wagtailimages_tags %}
+
+<h1>{{self.title}}</h1>
+
+{% for card in self.cards %}
+{% image card.image fill-300x281 as img %}
+{{ card.title }}
+<img src="{{ img.url }}" alt="{{ img.alt }}">
+{% endfor %}

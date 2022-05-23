@@ -83,7 +83,7 @@
                     {% image post.blog_image fill-750x375 as blog_img %}
 
                 <div class="section-title title-before">
-                    <h1><a href="#">Business</a></h1>
+                    <h1><a href="#">{{post.category}}</a></h1>
                 </div>							
                 <div class="tr-post">
                     <div class="entry-header">
@@ -93,12 +93,19 @@
                     </div>
                     <div class="post-content">
                         <div class="author">
-                            <a href="#"><img class="img-fluid img-circle" src="images/others/author1.png" alt="Image"></a>
+                            {% for iter in post.blog_authors.all %}
+                                {% image iter.author.image fill-50x50 as img %}
+                                <a href="#"><img class="img-fluid img-circle" src="{{ img.url }}" alt="Image"></a>
+                                {% endfor %}
+                            
                         </div>
                         <div class="entry-meta">
                             <ul>
-                                <li>By <a href="#">Kolony Wispe</a></li>
-                                <li>445 Share /<a href="#"> 1 Hour ago</a></li>
+                                {% for iter in post.blog_authors.all %}
+                                {% image iter.author.image fill-50x50 as img %}
+                                <li>By <a href="#"> {{ iter.author.name }}</a></li>
+                                {% endfor %}
+                                <li><a href="#"> {{post.date|timesince}} ago</a></li>
                                 <li>
                                     <ul>
                                         <li>Share</li>
@@ -132,6 +139,7 @@
                 {% endfor %}								
             </div><!-- /.tr-section -->	
 
+            {% comment %}
             <div class="tr-ad">
                 <a href="#"><img class="img-fluid" src="{% static 'images/ai/1.jpg' %}" alt="Image"></a>
             </div><!-- /.tr-ad -->
@@ -415,10 +423,11 @@
                         <a class="right-photo" href="#photo-gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
                     </div>
                 </div><!-- /.photo-gallery	 -->							
-            </div><!-- /.photo-gallery-section -->									
+            </div><!-- /.photo-gallery-section -->	
+            {% endcomment %}								
         </div><!-- /.theiaStickySidebar -->
     </div>
-    
+    {% comment %}
     <div class="col-md-4 col-lg-3 medium-post-responsive tr-sticky">
         <div class="theiaStickySidebar">
             <div class="tr-section">
@@ -987,7 +996,8 @@
                 </div>
             </div><!-- meta-tab -->								
         </div><!-- /.theiaStickySidebar -->						
-    </div>						
+    </div>
+    {% endcomment %}						
 </div><!-- /.row -->
 
 {% endblock content %}
