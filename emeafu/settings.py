@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7-uh3l$$tvjds7&7chw4zr$&xro&20vwd9$^i3z8o4rymby=mn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['emeafu.com', 'www.emeafu.com', 'localhost', '127.0.0.1', '162.243.173.228']
+ALLOWED_HOSTS = ['emeafu.com', 'www.emeafu.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'analytics.apps.AnalyticsConfig',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Custom
+    'analytics.middleware.VisitorTrackingMiddleware',
 ]
 
 ROOT_URLCONF = 'emeafu.urls'
@@ -76,10 +80,16 @@ WSGI_APPLICATION = 'emeafu.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'emeafu_db',
+        'USER': 'emeafu_user',
+        'PASSWORD': 'EMEAFU.password',
+        'HOST': 'localhost',
+        'PORT': '',
+        'PORT': ''
     }
 }
 
