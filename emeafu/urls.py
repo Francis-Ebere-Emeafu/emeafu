@@ -20,9 +20,17 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
 
+from wagtail import urls as wagtail_urls
+from wagtail.admin import urls as wagtailadmin_urls
+# from wagtail.core import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', include(wagtail_urls)), #Wagtail CMS blog 
+    path('cms/', include(wagtailadmin_urls)), #Wagtail CMS Admin
+
     path("", TemplateView.as_view(template_name="base.html"), name="home"),
 
 ]
