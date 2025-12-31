@@ -33,6 +33,7 @@ fabfile.py
 .fabfile.py
 
 
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -66,12 +67,17 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+<<<<<<< HEAD
 
 # sqlite db
 *.sqlite3
 *.db
 *dev.db
 dev.db
+=======
+dev.db
+*.db
+>>>>>>> 7e2a05f5de7aacf03748383f9dcbb9405cbe0e5c
 # Flask stuff:
 instance/
 .webassets-cache
@@ -121,9 +127,12 @@ ENV/
 env.bak/
 venv.bak/
 
+<<<<<<< HEAD
 static
 .static 
 
+=======
+>>>>>>> 7e2a05f5de7aacf03748383f9dcbb9405cbe0e5c
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -141,3 +150,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+<<<<<<< HEAD
+=======
+
+
+# Automated Deployment Stuffs
+fabfile.py
+>>>>>>> 7e2a05f5de7aacf03748383f9dcbb9405cbe0e5c
