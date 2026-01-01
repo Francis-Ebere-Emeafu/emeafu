@@ -15,7 +15,7 @@ django-taggit==5.0.1
 django-treebeard==4.7.1
 djangorestframework==3.15.2
 draftjs-exporter==5.1.0
-asgiref==3.0
+# asgiref==3.0
 et-xmlfile==2.0.0
 Fabric3==1.14.post1
 filetype==1.2.0
