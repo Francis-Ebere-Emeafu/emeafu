@@ -173,6 +173,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Wagtail Settings
 WAGTAIL_SITE_NAME = 'EMEAFU'
+WAGTAILADMIN_BASE_URL = "http://127.0.0.1:8000"
 
 WAGTAILSEARCH_BACKENDS = {
     'default': {
